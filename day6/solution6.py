@@ -22,7 +22,9 @@ mjqjpqmgbljsphdztnvjfqwrcgsmlb etc.
 
 """
 
-# Grab each input code, for handling test inputs (we treat regular input as 1 and only 1 input)
+# Grab each input code, for handling test inputs
+# -> multiple test inputs are included and separated by newlines
+# -> 'real' input only has one line!
 sep_inputs = raw_data.splitlines()
 
 
@@ -53,8 +55,14 @@ for each_input in sep_inputs:
     
     # Get a 'sliding window' of 4 characters from the input
     four_char_seq_list = zip(each_input[0:], each_input[1:], each_input[2:], each_input[3:])
+    # -> For an input like: "abcdef", this gives:
+    # [
+    #   ["a", "b", "c", "d"],
+    #   ["b", "c", "d", "e"],
+    #   ["c", "d", "e", "f"]
+    # ]
     
-    # Keep reading characters until we find a unique sequence
+    # Keep reading sequences until we find a unique one
     num_read_4 = find_num_chars_until_unique_seq(four_char_seq_list)
     num_chars_packet_list.append(num_read_4)
 
@@ -69,7 +77,7 @@ for each_input in sep_inputs:
     # Sliding window, like part 1, but programmatically generated now
     fourteen_char_seq_list = zip(*(each_input[s:] for s in range(14)))
     
-    # Like part one, read sequence until we find all unique characters
+    # Like part one, read sequences until we find all unique characters
     num_read_14 = find_num_chars_until_unique_seq(fourteen_char_seq_list)
     num_chars_msg_list.append(num_read_14)
 
