@@ -4,7 +4,11 @@ Solutions for 2022 [advent of code](https://adventofcode.com/)
 
 ---
 
-Using Python3 (3.9.12, though 3.6+ probably works fine)
+- Using Python3 (version 3.9.12, though 3.6+ probably works fine)
+- Trying to avoid external libraries, so no special environments are needed
+- All scripts load input data using relative pathing, so they must run from within their respective folders! For example:
 
-Trying to avoid external libraries, so no special environments are needed.
-All scripts load input data using relative pathing, so they must run from within their respective folders!
+```
+cd day05
+python solution5.py
+```
